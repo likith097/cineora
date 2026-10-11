@@ -1,40 +1,99 @@
-# CINEORA — Every Story Starts Here
+# CINEORA
 
-A responsive movie discovery app built with React, TypeScript, Vite and TMDB. Graphite Red visual identity.
+**Every Story Starts Here.**
+
+CINEORA is a Netflix-inspired movie discovery platform built with React, TypeScript, and the TMDB API. It features personalized recommendations, advanced movie filtering, trailers, and a persistent watchlist.
+
+**[Live Demo](https://cineora-movies.vercel.app/)** | **[GitHub Repository](https://github.com/likith097/cineora)**
 
 ## Features
-- Cinematic featured movie hero
-- Trending, popular and top-rated movie collections
-- Search with debounce and genre filtering
-- Movie details and embedded YouTube trailers
-- Personal watchlist saved in browser localStorage
-- Responsive desktop/mobile layout
-- TMDB API token stays on the server (Vercel function in production, Vite proxy in development)
 
-## Run locally
-1. Install Node.js 20+.
-2. Create a TMDB account and request an API Read Access Token at https://www.themoviedb.org/settings/api .
-3. Copy `.env.example` to `.env` and set `TMDB_READ_TOKEN`.
-4. Run `npm install`.
-5. Run `npm run dev` and open the local URL shown in your terminal.
+- **Trending Movies:** Dynamic homepage carousel featuring trending titles.
+- **Movie Discovery:** Explore popular and top-rated movies.
+- **Advanced Filters:** Filter movies by genre, release year, and minimum rating, with sorting options.
+- **Movie Search:** Search for movies by title.
+- **Personalized Recommendations:** Discover movies based on titles saved to your watchlist.
+- **Watchlist:** Save and remove movies with browser-based persistence.
+- **Movie Details and Trailers:** View additional movie information and available trailers.
+- **Responsive Design:** Optimized for desktop and mobile screens.
 
-## Deploy on GitHub + Vercel
-1. Create an empty GitHub repository called `cineora`.
-2. From this project directory run:
-   ```bash
-   git init
-   git add .
-   git commit -m "Build CINEORA v1"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/cineora.git
-   git push -u origin main
-   ```
-3. In Vercel, import the GitHub repository. Select **Vite** as framework. Keep build command `npm run build` and output directory `dist`.
-4. Add the environment variable `TMDB_READ_TOKEN` in Vercel project settings, with your TMDB API Read Access Token. Do **not** prefix it with `VITE_`.
-5. Deploy. Vercel will serve the frontend and `/api/tmdb` serverless function.
+## Tech Stack
 
-## Notes
-- TMDB attribution is in the site footer. Review TMDB's terms and logo attribution requirements before public launch: https://developer.themoviedb.org/docs/faq .
-- This is a movie discovery platform, not a licensed full-movie streaming service.
-- Watchlist is per browser/device, not synced across accounts.
-- TMDB API access and Vercel Hobby plan are subject to their respective terms and limits.
+| Category | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Vite |
+| Backend | Vercel Serverless Functions |
+| API | TMDB API |
+| Styling | CSS |
+| Icons | Lucide React |
+| Deployment | Vercel |
+| Version Control | Git, GitHub |
+
+## Architecture
+
+CINEORA uses a React frontend that communicates with a serverless API proxy hosted on Vercel.
+
+The backend retrieves movie information from TMDB using a server-side API token. This keeps the token out of the frontend application.
+
+Watchlist data is stored in the browser using localStorage. Personalized recommendations are generated using TMDB recommendation and similar-movie endpoints.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm
+- A TMDB API Read Access Token
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/likith097/cineora.git
+cd cineora
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file in the project root:
+
+```env
+TMDB_READ_TOKEN=your_tmdb_read_access_token
+```
+
+Run the application locally using Vercel CLI:
+
+```bash
+npx vercel dev
+```
+
+Open `http://localhost:3000`.
+
+## Deployment
+
+CINEORA is deployed on Vercel with a Vite frontend and serverless API functions.
+
+Configure the `TMDB_READ_TOKEN` environment variable in Vercel before deploying.
+
+## Future Improvements
+
+- User authentication and cloud-synced watchlists
+- More advanced recommendation preferences
+- Improved accessibility and automated testing
+- Additional discovery and personalization features
+
+## Disclaimer
+
+This project is an independent portfolio application and is not affiliated with Netflix.
+
+Movie data is provided by TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+## Author
+
+**Likith Kumar**
+
+[GitHub](https://github.com/likith097)
